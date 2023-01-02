@@ -8,19 +8,16 @@ const Movie = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        getData();
-        window.scrollTo(0,0)
-    },[])
-
-    const getData = () => {
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=83bc1ac49da602b72f4a3140351d22a2`)
         .then(res => res.json())
         .then(data => {
             console.log(data)
             setMovie(data)
             })
-            
-    }
+        window.scrollTo(0,0)
+    },[id])
+
+   
 
   return (
     <div className='movie'>
